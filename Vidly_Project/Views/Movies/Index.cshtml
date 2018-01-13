@@ -1,0 +1,27 @@
+﻿@using Vidly_Project.Models
+@using Vidly_Project.ViewModels
+@model Vidly_Project.ViewModels.MoviesIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Movies</h1>
+
+<table class="table table-bordered table-hover ">
+    <thead>
+    <tr>
+        <th>Movie</th>
+    </tr>
+    </thead>  
+    <tbody>
+    @{
+        foreach (Movie movie in Model.Movies)
+        {
+            <tr><td>@Html.ActionLink(movie.Name,	"Details",	"Movies",	new	{	id	=	
+                        movie.Id	},	null)	</td></tr>
+        }
+    }
+    </tbody>
+
+</table>
