@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Web;
@@ -11,32 +12,39 @@ namespace Vidly_Project.Controllers
 {
     public class CustomersController : Controller
     {
-        private List<Customer> customers = new List<Customer>
-        {
-            new Customer {Id = 1 , Name = "John Smith"},
-            new Customer {Id = 2 , Name = "Mary Williams"}
-        };
 
+        private ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+        
 
         // GET: Customers
         public ActionResult Index()
         {
-            
-            CustomerIndexViewModel vm = new CustomerIndexViewModel
-            {
-                Customers = customers
-            };
-            return View(vm);
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            //CustomerIndexViewModel vm = new CustomerIndexViewModel
+            //{
+            //    Customers = customers
+            //};
+            return View(customers);
         }
 
         [Route("customers/details/{id}")]
         public ActionResult Details(int id)
         {
-            Customer customer =  customers.FirstOrDefault(c => c.Id == id);
+            Customer customer = _context.Customers.Include(c => c.MembershipType).FirstOrDefault(c => c.Id == id);
             if (customer != null)
             {
-                CustomerDetailsViewModel vm = new CustomerDetailsViewModel {Customer = customer};
-                return View(vm);
+                //CustomerDetailsViewModel vm = new CustomerDetailsViewModel {Customer = customer};
+                return View(customer);
             }
             else
             {
