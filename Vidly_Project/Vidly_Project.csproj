@@ -249,6 +249,10 @@
     <Compile Include="Migrations\201801141247178_AddFieldsToMovieTable.Designer.cs">
       <DependentUpon>201801141247178_AddFieldsToMovieTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801200519280_Remove Required from Genre in Movie.cs" />
+    <Compile Include="Migrations\201801200519280_Remove Required from Genre in Movie.Designer.cs">
+      <DependentUpon>201801200519280_Remove Required from Genre in Movie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -262,7 +266,9 @@
     <Compile Include="ViewModels\CustomerDetailsViewModel.cs" />
     <Compile Include="ViewModels\CustomerIndexViewModel.cs" />
     <Compile Include="ViewModels\MovieDetailsViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\MoviesIndexViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -329,7 +335,8 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
-    <Content Include="Views\Customers\New.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -386,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801141247178_AddFieldsToMovieTable.resx">
       <DependentUpon>201801141247178_AddFieldsToMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801200519280_Remove Required from Genre in Movie.resx">
+      <DependentUpon>201801200519280_Remove Required from Genre in Movie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
