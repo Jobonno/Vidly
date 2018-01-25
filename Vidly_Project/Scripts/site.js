@@ -1,0 +1,1 @@
+﻿$('.validation-summary-errors').fadeOut(2000);
