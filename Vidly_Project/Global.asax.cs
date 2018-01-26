@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AutoMapper;
+using Vidly_Project.App_Start;
 
 namespace Vidly_Project
 {
@@ -12,6 +15,10 @@ namespace Vidly_Project
     {
         protected void Application_Start()
         {
+            //setup for Mapper to initialize automapper to map Customer with CustomerDTO
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
+
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
