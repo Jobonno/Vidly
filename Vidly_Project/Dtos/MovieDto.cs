@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
 
-namespace Vidly_Project.Models
+namespace Vidly_Project.Dtos
 {
     public class MovieDto
     {
@@ -15,6 +16,8 @@ namespace Vidly_Project.Models
 
         [Required]
         public byte GenreId { get; set; }
+
+        public GenreDto Genre { get; set; }
 
         [Required]
         public DateTime ReleaseDate { get; set; }

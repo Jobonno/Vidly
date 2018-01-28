@@ -16,7 +16,7 @@ namespace Vidly_Project.Models
         public string Name { get; set; }
         
         public static readonly byte Unknown = 0;
-        public static readonly byte PayAsYouGo = 0;
+        public static readonly byte PayAsYouGo = 1;
 
     }
 }
