@@ -272,6 +272,14 @@
     <Compile Include="Migrations\201801200519280_Remove Required from Genre in Movie.Designer.cs">
       <DependentUpon>201801200519280_Remove Required from Genre in Movie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802061136182_SeedUsers.cs" />
+    <Compile Include="Migrations\201802061136182_SeedUsers.Designer.cs">
+      <DependentUpon>201802061136182_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802061157456_AddDrivingLicenceToUser.cs" />
+    <Compile Include="Migrations\201802061157456_AddDrivingLicenceToUser.Designer.cs">
+      <DependentUpon>201802061157456_AddDrivingLicenceToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -282,6 +290,7 @@
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerDetailsViewModel.cs" />
@@ -530,10 +539,11 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -593,6 +603,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801200519280_Remove Required from Genre in Movie.resx">
       <DependentUpon>201801200519280_Remove Required from Genre in Movie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061136182_SeedUsers.resx">
+      <DependentUpon>201802061136182_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061157456_AddDrivingLicenceToUser.resx">
+      <DependentUpon>201802061157456_AddDrivingLicenceToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -39,12 +39,11 @@ namespace Vidly_Project.Controllers
       
 
         //movies
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Index()
         {
-            if (!pageIndex.HasValue) pageIndex = 1;
-            if (String.IsNullOrWhiteSpace(sortBy)) sortBy = "Name";
-            var movies = _context.Movies.Include(g => g.Genre).ToList();
-            return View(movies);
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
+            return View("ReadOnlyList");
         }
 
         [Route("movies/details/{id}")]
@@ -70,7 +69,7 @@ namespace Vidly_Project.Controllers
             return Content(year + "/" + month);
         }
 
-
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
